@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'tst-home',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  @Input() homeTitle: string;
+  @Input() homeSubTitle: string;
+
+
+
   constructor() { }
 
   ngOnInit() {
+      this.homeTitle = 'Thomas Rhythm';
+      this.homeSubTitle = 'Extraordinary art director & creative minimalism lover';
   }
 
 }

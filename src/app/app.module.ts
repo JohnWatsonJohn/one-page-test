@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {AccordionModule} from 'primeng/accordion';
+// import {MenuItem} from 'primeng/api';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -35,10 +37,11 @@ import { MapSectionComponent } from './pages/content/map-section/map-section.com
     BlogSectionComponent,
     NewsletterSectionComponent,
     ContactSectionComponent,
-    MapSectionComponent
+    MapSectionComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+      AccordionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
