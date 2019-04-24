@@ -19,6 +19,7 @@ import { BlogSectionComponent } from './pages/content/blog-section/blog-section.
 import { NewsletterSectionComponent } from './pages/content/newsletter-section/newsletter-section.component';
 import { ContactSectionComponent } from './pages/content/contact-section/contact-section.component';
 import { MapSectionComponent } from './pages/content/map-section/map-section.component';
+import {TestimonialsModel} from "./pages/content/testimonials-section/models/testimonials.model";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { MapSectionComponent } from './pages/content/map-section/map-section.com
     BrowserModule,
       AccordionModule,
   ],
-  providers: [],
+  providers: [TestimonialsModel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
