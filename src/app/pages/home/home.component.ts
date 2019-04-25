@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
 
   @Input() homeTitle: string;
   @Input() homeSubTitle: string;
+  @Input() imageSrc: string;
 
 
 
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
       this.homeTitle = 'Thomas Rhythm';
       this.homeSubTitle = 'Extraordinary art director & creative minimalism lover';
+      this.imageSrc = 'assets/images/full-width-images/2fons.ru-15904.jpg';
   }
 
 }
