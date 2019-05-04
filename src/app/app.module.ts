@@ -19,6 +19,11 @@ import { BlogSectionComponent } from './pages/content/blog-section/blog-section.
 import { NewsletterSectionComponent } from './pages/content/newsletter-section/newsletter-section.component';
 import { ContactSectionComponent } from './pages/content/contact-section/contact-section.component';
 import { MapSectionComponent } from './pages/content/map-section/map-section.component';
+import { Section1Component } from './pages/content/services-section/section1/section1.component';
+import { Section2Component } from './pages/content/services-section/section2/section2.component';
+import { SocialLinksComponent } from './pages/footer/social-links/social-links.component';
+import { MenuComponent } from './pages/navigation/menu/menu.component';
+import { FilterComponent } from './pages/content/portfolio-section/filter/filter.component';
 
 
 @NgModule({
@@ -39,6 +44,11 @@ import { MapSectionComponent } from './pages/content/map-section/map-section.com
     NewsletterSectionComponent,
     ContactSectionComponent,
     MapSectionComponent,
+    Section1Component,
+    Section2Component,
+    SocialLinksComponent,
+    MenuComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
