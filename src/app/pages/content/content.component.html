@@ -1,4 +1,3 @@
-
 <!-- About Section -->
 <section class="page-section" id="about">
     <div class="container relative">
@@ -13,7 +12,7 @@
                             {{textOneAbout}}
                         </p>
                         <footer>
-                           {{nameAbout}}
+                            {{nameAbout}}
                         </footer>
                     </blockquote>
                 </div>
@@ -26,7 +25,7 @@
             </div>
         </div>
         <div class="row">
-            <tst-about *ngFor="let aboutItem of aboutItems"  [itemImgAbout]="aboutItem.itemImgAbout"
+            <tst-about *ngFor="let aboutItem of aboutItems" [itemImgAbout]="aboutItem.itemImgAbout"
                        [itemTitleAbout]="aboutItem.itemTitleAbout" [itemTextAbout]="aboutItem.itemTextAbout"
                        [itemNameAbout]="aboutItem.itemNameAbout" [itemRoleAbout]="aboutItem.itemRoleAbout"
             ></tst-about>
@@ -34,7 +33,7 @@
     </div>
 </section>
 
-        <!-- End About Section -->
+<!-- End About Section -->
 
 <!-- Divider -->
 <hr class="mt-0 mb-0 "/>
@@ -48,8 +47,7 @@
         <tst-services-section></tst-services-section>
     </div>
 </section>
- <!--End Services Section-->
-
+<!--End Services Section-->
 
 
 <tst-call-section-one></tst-call-section-one>
@@ -76,15 +74,17 @@
 
         <!-- Works Filter -->
         <div class="works-filter font-alt align-center">
-            <tst-filter *ngFor="let filterItem of filterItems"  [filterPortf]="filterItem.filterPortf" [filterName]="filterItem.filterName"></tst-filter>
+            <tst-filter *ngFor="let filterItem of filterItems" [filterPortf]="filterItem.filterPortf"
+                        [filterName]="filterItem.filterName"></tst-filter>
         </div>
         <!-- End Works Filter -->
 
         <!-- Works Grid -->
         <ul class="works-grid work-grid-3 work-grid-gut clearfix font-alt hover-white hide-titles" id="work-grid">
 
-            <tst-portfolio-section *ngFor="let portfItem of portfItems"  [workHrefP]="portfItem.workHrefP" [workImgP]="portfItem.workImgP" [workTitleP]="portfItem.workTitleP"
-                                   [workDescrP]="portfItem.workDescrP" ></tst-portfolio-section>
+            <tst-portfolio-section *ngFor="let portfItem of portfItems" [workHrefP]="portfItem.workHrefP"
+                                   [workImgP]="portfItem.workImgP" [workTitleP]="portfItem.workTitleP"
+                                   [workDescrP]="portfItem.workDescrP"></tst-portfolio-section>
 
         </ul>
     </div>
@@ -95,22 +95,14 @@
 
 <!-- Features Section -->
 <section class="page-section">
-    <div class="container relative">
-        <h2 class="section-title font-alt mb-70 mb-sm-40">
-            {{featurHead}}
-        </h2>
-        <div class="row multi-columns-row alt-features-grid">
-
-            <tst-features-section *ngFor="let featurItem of featurItems"  [iconF]="featurItem.iconF" [titleF]="featurItem.titleF" [textF]="featurItem.textF"></tst-features-section>
-
-        </div>
-    </div>
+    <tst-features-section class="container"></tst-features-section>
 </section>
 <!-- End Features Section -->
 
 <!-- Testimonials Section -->
 
-<tst-testimonials-section *ngFor="let item of items"  [titleT]="item.titleT" [textT]="item.textT" [nameT]="item.nameT" ></tst-testimonials-section>
+<tst-testimonials-section *ngFor="let item of items" [titleT]="item.titleT" [textT]="item.textT"
+                          [nameT]="item.nameT"></tst-testimonials-section>
 
 <!-- End Testimonials Section -->
 
@@ -123,8 +115,10 @@
         </h2>
         <div class="row multi-columns-row">
 
-            <tst-blog-section *ngFor="let blogItem of blogItems"  [linkB]="blogItem.linkB" [imgB]="blogItem.imgB" [titleB]="blogItem.titleB"
-                              [nameB]="blogItem.nameB" [dateB]="blogItem.dateB" [textB]="blogItem.textB"></tst-blog-section>
+            <tst-blog-section *ngFor="let blogItem of blogItems" [linkB]="blogItem.linkB" [imgB]="blogItem.imgB"
+                              [titleB]="blogItem.titleB"
+                              [nameB]="blogItem.nameB" [dateB]="blogItem.dateB"
+                              [textB]="blogItem.textB"></tst-blog-section>
 
         </div>
     </div>
@@ -142,7 +136,9 @@
         <div class="row mb-60 mb-xs-40">
             <div class="col-md-8 col-md-offset-2">
                 <div class="row">
-                    <tst-contact-section *ngFor="let contItem of contItems"  [contItemIcon]="contItem.contItemIcon" [contItemTitle]="contItem.contItemTitle" [contItemText]="contItem.contItemText"></tst-contact-section>
+                    <tst-contact-section *ngFor="let contItem of contItems" [contItemIcon]="contItem.contItemIcon"
+                                         [contItemTitle]="contItem.contItemTitle"
+                                         [contItemText]="contItem.contItemText"></tst-contact-section>
                 </div>
             </div>
         </div>
@@ -154,17 +150,20 @@
                         <div class="cf-left-col">
                             <!-- Name -->
                             <div class="form-group">
-                                <input type="text" name="name" id="name" class="input-md round form-control" placeholder="{{contName}}" pattern=".{3,100}" required>
+                                <input type="text" name="name" id="name" class="input-md round form-control"
+                                       placeholder="{{contName}}" pattern=".{3,100}" required>
                             </div>
                             <!-- Email -->
                             <div class="form-group">
-                                <input type="email" name="email" id="email" class="input-md round form-control" placeholder="{{contEmail}}" pattern=".{5,100}" required>
+                                <input type="email" name="email" id="email" class="input-md round form-control"
+                                       placeholder="{{contEmail}}" pattern=".{5,100}" required>
                             </div>
                         </div>
                         <div class="cf-right-col">
                             <!-- Message -->
                             <div class="form-group">
-                                <textarea name="message" id="message" class="input-md round form-control" style="height: 84px;" placeholder="{{contMessage}}"></textarea>
+                                <textarea name="message" id="message" class="input-md round form-control"
+                                          style="height: 84px;" placeholder="{{contMessage}}"></textarea>
                             </div>
                         </div>
                     </div>
@@ -178,7 +177,8 @@
                         <div class="cf-right-col">
                             <!-- Send Button -->
                             <div class="align-right pt-10">
-                                <button class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">{{contBtn}}</button>
+                                <button class="submit_btn btn btn-mod btn-medium btn-round"
+                                        id="submit_btn">{{contBtn}}</button>
                             </div>
                         </div>
                     </div>

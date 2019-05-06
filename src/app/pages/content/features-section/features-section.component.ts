@@ -1,29 +1,55 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, NgModule, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {BlockTextModule} from '../../../library/components/block-text/block-text.component';
+import {IDataService} from '../../../services/data/types';
+import {DATA_SERVICE} from '../../../services/data/data.service';
 
 @Component({
   selector: 'tst-features-section',
-  template: `      <div class="col-sm-6 col-md-4 col-lg-4">
-      <div class="alt-features-item align-center">
-          <div class="alt-features-icon">
-              <span class="{{iconF}}"></span>
-          </div>
-          <h3 class="alt-features-title font-alt">{{titleF}}</h3>
-          <div class="alt-features-descr align-left">
-              {{textF}}
-          </div>
-      </div>
-  </div>`,
-  styleUrls: ['./features-section.component.css']
+  template: `
+      <block-text [header]="title" class="features-section">
+          <block-text *ngFor="let item of items"
+                      [icon]="item.icon"
+                      [header]="item.title"
+                      class="features-section-item">
+              {{item.text}}
+          </block-text>
+      </block-text>
+  `,
+
 })
 export class FeaturesSectionComponent implements OnInit {
 
-    @Input() iconF: string;
-    @Input() titleF: string;
-    @Input() textF: string;
+  title = 'WHY CHOOSE US?';
+  source = 'feature';
 
-  constructor() { }
+  items: any[];
 
-  ngOnInit() {
+  constructor(@Inject(DATA_SERVICE) private data: IDataService) {
   }
 
+  ngOnInit() {
+    this.data.getItems(this.source).subscribe((items: any[]) => {
+      this.items = items;
+      console.log('!!!!!!!!!', items);
+    });
+  }
+
+}
+
+
+@NgModule({
+  imports: [
+    CommonModule,
+    BlockTextModule,
+  ],
+  exports: [
+    FeaturesSectionComponent,
+  ],
+  declarations: [
+    FeaturesSectionComponent,
+  ],
+  providers: [],
+})
+export class FeaturesSectionModule {
 }
