@@ -26,12 +26,12 @@ export class ContentComponent implements OnInit {
   // TestimonialsSection
   public items = [
     {
-      titleT: 'What people say?',
-      textT: 'Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue, risus utaliquam dapibus. Thanks!',
-      nameT: 'John Doe, doodle inc.'
+      title: 'What people say?',
+      text: 'Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue, risus utaliquam dapibus. Thanks!',
+      name: 'John Doe, doodle inc.'
     },
-    {titleT: '2', textT: '2', nameT: '2'},
-    {titleT: '3', textT: '3', nameT: '3'}
+    {title: '2', textT: '2', nameT: '2'},
+    {title: '3', textT: '3', nameT: '3'}
   ];
   public blogTitle = 'Latest News';
   // end Testimonials Section

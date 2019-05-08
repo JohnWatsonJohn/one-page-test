@@ -31,7 +31,6 @@ export class FeaturesSectionComponent implements OnInit {
   ngOnInit() {
     this.data.getItems(this.source).subscribe((items: any[]) => {
       this.items = items;
-      console.log('!!!!!!!!!', items);
     });
   }
 
