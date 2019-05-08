@@ -1,4 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, NgModule, OnInit} from '@angular/core';
+import {SocialLinksComponent} from "./social-links/social-links.component";
+import {BlockTxtImgModule} from "../../tpls/block-txt-img/block-txt-img.component";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'tst-footer',
@@ -65,4 +68,21 @@ export class FooterComponent implements OnInit {
     this.footerMade = 'Made with love for great people.';
   }
 
+}
+
+@NgModule({
+    imports: [
+        CommonModule,
+        BlockTxtImgModule,
+    ],
+    exports: [
+        FooterComponent,
+    ],
+    declarations: [
+        FooterComponent,
+        SocialLinksComponent
+    ],
+    providers: [],
+})
+export class FooterModule {
 }

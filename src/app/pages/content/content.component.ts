@@ -1,4 +1,19 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
+import {Section2Component} from "./services-section/section2/section2.component";
+import {Section1Component} from "./services-section/section1/section1.component";
+import {MapSectionComponent} from "./map-section/map-section.component";
+import {ContactSectionComponent} from "./contact-section/contact-section.component";
+import {NewsletterSectionComponent} from "./newsletter-section/newsletter-section.component";
+import {BlogSectionComponent} from "./blog-section/blog-section.component";
+import {TestimonialsSectionComponent} from "./testimonials-section/testimonials-section.component";
+import {CallSectionTwoComponent} from "./call-section-two/call-section-two.component";
+import {PortfolioSectionComponent} from "./portfolio-section/portfolio-section.component";
+import {CallSectionOneComponent} from "./call-section-one/call-section-one.component";
+import {ServicesSectionComponent} from "./services-section/services-section.component";
+import {AboutModule} from "./about/about.component";
+import {FilterComponent} from "./portfolio-section/filter/filter.component";
+import {BlockTxtImgModule} from "../../tpls/block-txt-img/block-txt-img.component";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'tst-content',
@@ -80,26 +95,26 @@ export class ContentComponent implements OnInit {
 
     // About Section
 
-    public titleAbout = 'About Studio';
-    public textOneAbout = 'Design is not making beauty, beauty emerges from selection, affinities, integration, love.';
-    public nameAbout = 'Louis Kahn';
-    public textTwoAbout  = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In maximus ligula semper metus pellentesque mattis. ' +
-        'Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor consectetur fermentum nibh volutpat, accumsan purus.';
-    public textThreeAbout = 'Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, ' +
-        'fermentum orci amet, iaculis libero. Donec vel ultricies purus. Nam dictum sem, eu aliquam.';
+    // public titleAbout = 'About Studio';
+    // public textOneAbout = 'Design is not making beauty, beauty emerges from selection, affinities, integration, love.';
+    // public nameAbout = 'Louis Kahn';
+    // public textTwoAbout  = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In maximus ligula semper metus pellentesque mattis. ' +
+    //     'Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor consectetur fermentum nibh volutpat, accumsan purus.';
+    // public textThreeAbout = 'Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, ' +
+    //     'fermentum orci amet, iaculis libero. Donec vel ultricies purus. Nam dictum sem, eu aliquam.';
 
 
-    public aboutItems = [
-        {itemImgAbout: 'assets/images/team/46.jpg', itemTitleAbout: 'Hello & Welcome!',
-            itemTextAbout: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.', itemNameAbout: 'Thomas Rhythm',
-            itemRoleAbout: 'Art Director'},
-        {itemImgAbout: 'assets/images/team/105.jpg', itemTitleAbout: 'Nice to meet!',
-            itemTextAbout: 'Curabitur augue, nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique porta.', itemNameAbout: 'Marta Laning',
-            itemRoleAbout: 'Web engineer'},
-        {itemImgAbout: 'assets/images/team/164.jpg', itemTitleAbout: 'Whats Up!',
-            itemTextAbout: 'Adipiscing elit curabitur eu adipiscing lacus e adipiscing lacus, a iaculis diam.', itemNameAbout: 'Steve ANDERS',
-            itemRoleAbout: 'Developer'}
-        ];
+    // public aboutItems = [
+    //     {itemImgAbout: 'assets/images/team/46.jpg', itemTitleAbout: 'Hello & Welcome!',
+    //         itemTextAbout: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.', itemNameAbout: 'Thomas Rhythm',
+    //         itemRoleAbout: 'Art Director'},
+    //     {itemImgAbout: 'assets/images/team/105.jpg', itemTitleAbout: 'Nice to meet!',
+    //         itemTextAbout: 'Curabitur augue, nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique porta.', itemNameAbout: 'Marta Laning',
+    //         itemRoleAbout: 'Web engineer'},
+    //     {itemImgAbout: 'assets/images/team/164.jpg', itemTitleAbout: 'Whats Up!',
+    //         itemTextAbout: 'Adipiscing elit curabitur eu adipiscing lacus e adipiscing lacus, a iaculis diam.', itemNameAbout: 'Steve ANDERS',
+    //         itemRoleAbout: 'Developer'}
+    //     ];
 
     // End About Section
 
@@ -131,4 +146,29 @@ export class ContentComponent implements OnInit {
         // console.log(this.backCallOne);
   }
 
+}
+@NgModule({
+    imports: [
+        CommonModule,
+        AboutModule,
+        BlockTxtImgModule
+    ],
+    exports: [ContentComponent],
+    declarations: [
+        FilterComponent,
+        ServicesSectionComponent,
+        CallSectionOneComponent,
+        PortfolioSectionComponent,
+        CallSectionTwoComponent,
+        TestimonialsSectionComponent,
+        BlogSectionComponent,
+        NewsletterSectionComponent,
+        ContactSectionComponent,
+        MapSectionComponent,
+        Section1Component,
+        Section2Component
+    ],
+    providers: [],
+})
+export class ContentModule {
 }

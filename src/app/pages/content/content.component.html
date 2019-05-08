@@ -1,37 +1,38 @@
 
 <!-- About Section -->
 <section class="page-section" id="about">
-    <div class="container relative">
-        <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
-            {{titleAbout}}
-        </h2>
-        <div class="section-text mb-50 mb-sm-20">
-            <div class="row">
-                <div class="col-md-4">
-                    <blockquote>
-                        <p>
-                            {{textOneAbout}}
-                        </p>
-                        <footer>
-                           {{nameAbout}}
-                        </footer>
-                    </blockquote>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                    {{textTwoAbout}}
-                </div>
-                <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                    {{textThreeAbout}}
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <tst-about *ngFor="let aboutItem of aboutItems"  [itemImgAbout]="aboutItem.itemImgAbout"
-                       [itemTitleAbout]="aboutItem.itemTitleAbout" [itemTextAbout]="aboutItem.itemTextAbout"
-                       [itemNameAbout]="aboutItem.itemNameAbout" [itemRoleAbout]="aboutItem.itemRoleAbout"
-            ></tst-about>
-        </div>
-    </div>
+    <tst-about class="container"></tst-about>
+    <!--<div class="container relative">-->
+        <!--<h2 class="section-title font-alt align-left mb-70 mb-sm-40">-->
+            <!--{{titleAbout}}-->
+        <!--</h2>-->
+        <!--<div class="section-text mb-50 mb-sm-20">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-4">-->
+                    <!--<blockquote>-->
+                        <!--<p>-->
+                            <!--{{textOneAbout}}-->
+                        <!--</p>-->
+                        <!--<footer>-->
+                           <!--{{nameAbout}}-->
+                        <!--</footer>-->
+                    <!--</blockquote>-->
+                <!--</div>-->
+                <!--<div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">-->
+                    <!--{{textTwoAbout}}-->
+                <!--</div>-->
+                <!--<div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">-->
+                    <!--{{textThreeAbout}}-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<tst-about *ngFor="let aboutItem of aboutItems"  [itemImgAbout]="aboutItem.itemImgAbout"-->
+                       <!--[itemTitleAbout]="aboutItem.itemTitleAbout" [itemTextAbout]="aboutItem.itemTextAbout"-->
+                       <!--[itemNameAbout]="aboutItem.itemNameAbout" [itemRoleAbout]="aboutItem.itemRoleAbout"-->
+            <!--&gt;</tst-about>-->
+        <!--</div>-->
+    <!--</div>-->
 </section>
 
         <!-- End About Section -->
