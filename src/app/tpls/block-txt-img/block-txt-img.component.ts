@@ -1,7 +1,7 @@
 import {Component, OnInit, NgModule, Input, ContentChild} from '@angular/core';
 
 import {CommonModule} from '@angular/common';
-import {Footer, Header, SharedModule} from 'primeng/shared';
+import {Footer, SharedModule} from 'primeng/shared';
 
 
 @Component({
@@ -59,6 +59,11 @@ export class BlockTxtImgComponent implements OnInit {
     @Input() itemNameAbout: string;
     @Input() subheader: string;
     @Input() itemRoleAbout: string;
+    @Input() titleAbout: string;
+    @Input() textOneAbout: string;
+    @Input() nameAbout: string;
+    @Input() textTwoAbout: string;
+    @Input() textThreeAbout: string;
 
     iconClass = {};
 
@@ -78,7 +83,7 @@ export class BlockTxtImgComponent implements OnInit {
 @NgModule({
     imports: [
         CommonModule,
-        SharedModule,
+        SharedModule
     ],
     exports: [BlockTxtImgComponent],
     declarations: [BlockTxtImgComponent],
