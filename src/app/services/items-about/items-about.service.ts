@@ -2,7 +2,7 @@ import {Injectable, InjectionToken} from '@angular/core';
 import {of} from 'rxjs';
 
 import {ItemsAboutService} from './types';
-import {itemsA} from './items-about';
+import {itemsA, itemsB, itemsS, itemsT} from './items-about';
 
 
 export const ITEMABOUT_SERVICE = new InjectionToken<ItemsAboutService>('ITEMABOUT_SERVICE');
@@ -15,6 +15,15 @@ export class AboutService implements ItemsAboutService {
 
     getItems(source: string) {
         return of(itemsA[source]);
+    }
+    getItemsS(sourceS: string) {
+        return of(itemsS[sourceS]);
+    }
+    getItemsT(sourceT: string) {
+        return of(itemsT[sourceT]);
+    }
+    getItemsB(sourceB: string) {
+        return of(itemsB[sourceB]);
     }
 
 }

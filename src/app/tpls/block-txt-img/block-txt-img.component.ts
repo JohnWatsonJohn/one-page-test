@@ -1,7 +1,8 @@
 import {Component, OnInit, NgModule, Input, ContentChild} from '@angular/core';
 
 import {CommonModule} from '@angular/common';
-import {Footer, SharedModule} from 'primeng/shared';
+import {SharedModule} from 'primeng/shared';
+
 
 
 @Component({
@@ -10,12 +11,13 @@ import {Footer, SharedModule} from 'primeng/shared';
       <div *ngIf="icon" class="block-icon">
           <i [ngClass]="iconClass"></i>
       </div>
-
-      <div *ngIf="itemImgAbout" class="block-image">
+      <div class="team-item">
+      
+          <div *ngIf="itemImgAbout" class="team-item-image">
           <img [src]="itemImgAbout">
-      </div>
 
-
+          <div class="team-item-detail">
+              
       <div *ngIf="itemTitleAbout" class="block-title">
           {{itemTitleAbout}}
       </div>
@@ -29,7 +31,8 @@ import {Footer, SharedModule} from 'primeng/shared';
         <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
         <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
        </div>
-       
+      </div>
+      </div>
        <div class="team-item-name">
         {{itemNameAbout}}
        </div>
@@ -37,15 +40,16 @@ import {Footer, SharedModule} from 'primeng/shared';
         <div class="team-item-role">
             {{itemRoleAbout}}
         </div>
-
+      </div>
       <div class="block-content">
           <ng-content></ng-content>
       </div>
 
-      <div *ngIf="footerFacet" class="block-footer">
-          <ng-content select="p-footer"></ng-content>
-      </div>
+      <!--<div *ngIf="footerFacet" class="block-footer">-->
+          <!--<ng-content select="p-footer"></ng-content>-->
+      <!--</div>-->
   `,
+    styleUrls: ['./block-txt-img.component.scss']
 })
 
 
@@ -67,7 +71,7 @@ export class BlockTxtImgComponent implements OnInit {
 
     iconClass = {};
 
-    @ContentChild(Footer) footerFacet;
+    // @ContentChild(Footer) footerFacet;
 
     constructor() {
     }

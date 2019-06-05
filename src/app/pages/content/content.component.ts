@@ -6,17 +6,18 @@ import {Section1Component} from "./services-section/section1/section1.component"
 import {MapSectionComponent} from "./map-section/map-section.component";
 import {ContactSectionComponent} from "./contact-section/contact-section.component";
 import {NewsletterSectionComponent} from "./newsletter-section/newsletter-section.component";
-import {BlogSectionComponent} from "./blog-section/blog-section.component";
-import {TestimonialsSectionComponent} from "./testimonials-section/testimonials-section.component";
+import {BlogSectionModule} from "./blog-section/blog-section.component";
+import {TestimonialsSectionModule} from "./testimonials-section/testimonials-section.component";
 import {CallSectionTwoComponent} from "./call-section-two/call-section-two.component";
 import {PortfolioSectionComponent} from "./portfolio-section/portfolio-section.component";
 import {CallSectionOneComponent} from "./call-section-one/call-section-one.component";
-import {ServicesSectionComponent} from "./services-section/services-section.component";
+
 import {AboutModule} from "./about/about.component";
 import {FilterComponent} from "./portfolio-section/filter/filter.component";
 import {BlockTxtImgModule} from "../../tpls/block-txt-img/block-txt-img.component";
 import {CommonModule} from "@angular/common";
 import {FeaturesSectionComponent} from "./features-section/features-section.component";
+import {ServicesSectionModule} from "./services-section/services-section.component";
 
 @Component({
   selector: 'tst-content',
@@ -27,11 +28,11 @@ export class ContentComponent implements OnInit {
 
   constructor() { }
    // TestimonialsSection
-  public items = [
-        {titleT: 'What people say?', textT: 'Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue, risus utaliquam dapibus. Thanks!', nameT: 'John Doe, doodle inc.'},
-        {titleT: '2', textT: '2', nameT: '2'},
-        {titleT: '3', textT: '3', nameT: '3'}
-        ];
+  // public items = [
+  //       {titleT: 'What people say?', textT: 'Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue, risus utaliquam dapibus. Thanks!', nameT: 'John Doe, doodle inc.'},
+  //       {titleT: '2', textT: '2', nameT: '2'},
+  //       {titleT: '3', textT: '3', nameT: '3'}
+  //       ];
     // end Testimonials Section
 
    // BlogSection
@@ -41,11 +42,11 @@ export class ContentComponent implements OnInit {
     public blogMore = 'All News in our blog';
 
 
-  public blogItems = [
-      {linkB: 'blog-single-sidebar-right.html', imgB: 'assets/images/blog/23.jpg', titleB: 'New Web Design Trends', nameB: 'John Doe', dateB: '10 December', textB: 'Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor consectetur fermentum nibh volutpat, accumsan purus.'},
-      {linkB: 'blog-single-sidebar-right.html', imgB: 'assets/images/blog/20.jpg', titleB: 'trtrtrtrt', nameB: 'tuturo', dateB: '00 December', textB: 'wwww wwww  wwwwww w      wwwwwwwww   ww w  w w w www wwwww'},
-      {linkB: 'blog-single-sidebar-right.html', imgB: 'assets/images/blog/31.jpg', titleB: 'Hello world', nameB: 'Doe', dateB: '29 november', textB: 'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq'}
-  ];
+  // public blogItems = [
+  //     {linkB: 'blog-single-sidebar-right.html', imgB: 'assets/images/blog/23.jpg', titleB: 'New Web Design Trends', nameB: 'John Doe', dateB: '10 December', textB: 'Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor consectetur fermentum nibh volutpat, accumsan purus.'},
+  //     {linkB: 'blog-single-sidebar-right.html', imgB: 'assets/images/blog/20.jpg', titleB: 'trtrtrtrt', nameB: 'tuturo', dateB: '00 December', textB: 'wwww wwww  wwwwww w      wwwwwwwww   ww w  w w w www wwwww'},
+  //     {linkB: 'blog-single-sidebar-right.html', imgB: 'assets/images/blog/31.jpg', titleB: 'Hello world', nameB: 'Doe', dateB: '29 november', textB: 'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq'}
+  // ];
     // end BlogSection
 
     // Features Section
@@ -154,18 +155,21 @@ export class ContentComponent implements OnInit {
     imports: [
         CommonModule,
         AboutModule,
-       BlockTxtImgModule
+       BlockTxtImgModule,
+        //BlockServiceModule,
+        ServicesSectionModule,
+        TestimonialsSectionModule,
+        BlogSectionModule
     ],
     exports: [ContentComponent],
     declarations: [
 	ContentComponent,
         FilterComponent,
-        ServicesSectionComponent,
         CallSectionOneComponent,
         PortfolioSectionComponent,
         CallSectionTwoComponent,
-        TestimonialsSectionComponent,
-        BlogSectionComponent,
+        // TestimonialsSectionComponent,
+        //BlogSectionComponent,
         NewsletterSectionComponent,
         ContactSectionComponent,
         MapSectionComponent,

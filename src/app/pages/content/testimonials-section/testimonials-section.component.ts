@@ -1,68 +1,57 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, NgModule, OnInit} from '@angular/core';
+import {ITEMABOUT_SERVICE} from "../../../services/items-about/items-about.service";
+import {ItemsAboutService} from "../../../services/items-about/types";
+import {CommonModule} from "@angular/common";
+import {BlockTestimonialsComponent} from "../../../tpls/block-testimonials/block-testimonials.component";
 
 
 
 @Component({
   selector: 'tst-testimonials-section',
   template: `<section class="page-section bg-dark bg-dark-alfa-90 fullwidth-slider" data-background="images/full-width-images/section-bg-3.jpg">
-      <!--<div *ngFor="let item of items"> -->
-          <div class="container relative">
-              <div class="row">
-                  <div class="col-md-8 col-md-offset-2 align-center">
-                      <!-- Section Icon -->
-                      <div class="section-icon">
-                          <span class="icon-quote"></span>
-                      </div>
-                      <!-- Section Title --><h3 class="small-title font-alt">{{titleT}}</h3>
-                      <blockquote class="testimonial white">
-                          <p>{{textT}}
-                              
-                          </p>
-                          <footer class="testimonial-author">
-                             {{nameT}}
-                          </footer>
-                      </blockquote>
-                  </div>
-              </div>
-          </div>
-      <!--</div> -->
+ <tst-block-testimonials
+          *ngFor="let item of items"  [titleT]="item.titleT" [textT]="item.textT" [nameT]="item.nameT"
+  ></tst-block-testimonials>
   </section>`,
   styleUrls: ['./testimonials-section.component.css'],
 
 })
 export class TestimonialsSectionComponent implements OnInit {
 
-      @Input() titleT: string;
-      @Input() textT: string;
-      @Input() nameT: string;
+      // @Input() titleT: string;
+      // @Input() textT: string;
+      // @Input() nameT: string;
 
 
-    constructor() {
+    sourceT = 'testimonialsItems';
+
+
+    items: any[];
+
+    constructor(@Inject(ITEMABOUT_SERVICE) private itemsT: ItemsAboutService) {
     }
-
-    // public items = [
-    //     {
-    //         titleT: 'What people say?',
-    //         textT: 'Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue, risus utaliquam dapibus. Thanks!',
-    //         nameT: 'John Doe, doodle inc.',
-    //
-    //     },
-    //     {
-    //         titleT: '2',
-    //         textT: '2',
-    //         nameT: '2',
-    //
-    //     },
-    //     {
-    //         titleT: '3',
-    //         textT: '3',
-    //         nameT: '3',
-    //
-    //     }
-    // ];
 
     ngOnInit() {
-
-
+        this.itemsT.getItemsT(this.sourceT).subscribe((items: any[]) => {
+            this.items = items;
+            console.log('!!!!!!!!!', items);
+        });
     }
 }
+
+@NgModule({
+    imports: [
+        CommonModule
+    ],
+    exports: [
+         TestimonialsSectionComponent,
+    ],
+    declarations: [
+          BlockTestimonialsComponent,
+         TestimonialsSectionComponent
+    ],
+    providers: [],
+})
+export class TestimonialsSectionModule {
+}
+

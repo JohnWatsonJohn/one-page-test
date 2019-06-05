@@ -6,23 +6,28 @@ import {ItemsAboutService} from '../../../services/items-about/types';
 
 @Component({
   selector: 'tst-about',
-  template: `<tst-block-txt-img
-           class="about-section"
-           [titleAbout]="title"
-            [textOneAbout]="textOne"
-            [nameAbout]="name"
-            [textTwoAbout]="textTwo"
-            [textThreeAbout]="textThree">
-      <ng-content></ng-content>
-      <tst-block-txt-img *ngFor="let aboutItem of aboutItems"  
+  template: `<div
+           class="about-section">
+      <div class="row">
+            <h2 class="title">{{title}}</h2>
+      <div class="col-md-4 blockquote">
+            <p class="textOne">{{textOne}}</p>
+            <footer class="name">{{name}}</footer>
+      </div>
+            <p class="textThree col-md-4">{{textTwo}}</p>
+            <p class="textThree col-md-4">{{textThree}}</p>
+      </div>
+        <tst-block-txt-img  class="col-sm-4 mb-xs-30 wow fadeInUp animated"
+                            style="visibility: visible; animation-name: fadeInUp;"
+                            *ngFor="let aboutItem of items"
                      [itemImgAbout]="aboutItem.itemImgAbout"
                      [itemTitleAbout]="aboutItem.itemTitleAbout" 
                      [itemTextAbout]="aboutItem.itemTextAbout"
                      [itemNameAbout]="aboutItem.itemNameAbout" 
                      [itemRoleAbout]="aboutItem.itemRoleAbout">
-      </tst-block-txt-img>
-      </tst-block-txt-img>`,
-  styleUrls: ['./about.component.css']
+        </tst-block-txt-img>
+      </div>`,
+  styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
 

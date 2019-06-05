@@ -1,45 +1,53 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, NgModule, OnInit} from '@angular/core';
+import {ITEMABOUT_SERVICE} from "../../../services/items-about/items-about.service";
+import {ItemsAboutService} from "../../../services/items-about/types";
+import {CommonModule} from "@angular/common";
+import {BlockTestimonialsComponent} from "../../../tpls/block-testimonials/block-testimonials.component";
+import {BlockBlogComponent} from "../../../tpls/block-blog/block-blog.component";
 
 @Component({
   selector: 'tst-blog-section',
-  template: `      <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
+  template: `
 
-      <div class="post-prev-img">
-          <a href="{{linkB}}"><img src="{{imgB}}" alt="" /></a>
-      </div>
-
-      <div class="post-prev-title font-alt">
-          <a href="">{{titleB}}</a>
-      </div>
-
-      <div class="post-prev-info font-alt">
-          <a href="">{{nameB}}</a> | {{dateB}}
-      </div>
-
-      <div class="post-prev-text">
-          {{textB}}
-      </div>
-
-      <div class="post-prev-more">
-          <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-      </div>
-
-  </div>`,
+      <tst-block-blog class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s"
+              *ngFor="let blogItem of items"  [linkB]="blogItem.linkB" [imgB]="blogItem.imgB" [titleB]="blogItem.titleB"
+                      [nameB]="blogItem.nameB" [dateB]="blogItem.dateB" [textB]="blogItem.textB"
+      ></tst-block-blog>`,
   styleUrls: ['./blog-section.component.css']
 })
 export class BlogSectionComponent implements OnInit {
 
 
-    @Input() linkB: string;
-    @Input() imgB: string;
-    @Input() titleB: string;
-    @Input() nameB: string;
-    @Input() dateB: string;
-    @Input() textB: string;
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+    sourceB = 'blogItems';
 
+
+    items: any[];
+
+    constructor(@Inject(ITEMABOUT_SERVICE) private itemsB: ItemsAboutService) {
+    }
+
+    ngOnInit() {
+        this.itemsB.getItemsB(this.sourceB).subscribe((items: any[]) => {
+            this.items = items;
+            console.log('!!!!!!!!!', items);
+        });
+    }
+}
+
+@NgModule({
+    imports: [
+        CommonModule
+    ],
+    exports: [
+        BlogSectionComponent,
+    ],
+    declarations: [
+        BlockBlogComponent,
+        BlogSectionComponent
+    ],
+    providers: [],
+})
+export class BlogSectionModule {
 }
