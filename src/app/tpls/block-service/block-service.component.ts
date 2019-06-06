@@ -1,68 +1,35 @@
-import {Component, OnInit, NgModule, Input, ContentChild} from '@angular/core';
+import {Component, OnInit, NgModule, Input, ContentChild, Inject} from '@angular/core';
 
 import {CommonModule} from '@angular/common';
 import {Footer, SharedModule} from 'primeng/shared';
-import {TabViewModule} from 'primeng/tabview';
+
+import {ITEMABOUT_SERVICE} from "../../services/items-about/items-about.service";
+import {ItemsAboutService} from "../../services/items-about/types";
+import {TabViewModule} from "primeng/primeng";
+
 
 @Component({
     selector: 'tst-block-service',
-    template: `
-        
-      <div *ngIf="iconServ" class="block-icon">
-          
-            <i [ngClass]="iconServ"></i>
-          
-      </div>
-
-
-      <!--<div *ngIf="iconServ" class="block-iconServ">-->
-          <!--{{iconServ}}-->
-      <!--</div>-->
-      
-      <!--<div *ngIf="image" class="block-image">-->
-          <!--<img [src]="image">-->
-      <!--</div>-->
-
-
-      <div *ngIf="titleServ" class="block-titleServ">
-          {{titleServ}}
-      </div>
-
-      <div class="row text-service">
-          <blockquote class="col-md-4">
-            <p *ngIf="textServOne" class="block-textServOne">
-              {{textServOne}}
-            </p>
-      
-            <footer *ngIf="nameServ" class="block-nameServ">
-                {{nameServ}}
-            </footer>
-          </blockquote>
-          <p *ngIf="textServTwo" class="col-md-4">
-            {{textServTwo}}
-          </p>
-          <p *ngIf="textServThree" class="col-md-4">
-            {{textServThree}}
-          </p>
-      </div>
-      <!--<div class="row">-->
-          <!--<h2 class="title">{{title}}</h2>-->
-          <!--<blockquote class="col-md-4">-->
-              <!--<p class="textOne">{{textOne}}</p>-->
-              <!--<footer class="name">{{name}}</footer>-->
-          <!--</blockquote>-->
-          <!--<p class="textTwo col-md-4">{{textTwo}}</p>-->
-          <!--<p class="textThree col-md-4">{{textThree}}</p>-->
-      <!--</div>-->
-
-      <!--<div class="block-content">-->
-          <!--<ng-content></ng-content>-->
-      <!--</div>-->
-
-      <!--<div *ngIf="footerFacet" class="block-footer">-->
-          <!--<ng-content select="p-footer"></ng-content>-->
-      <!--</div>-->
-  `,
+    template: `<p-tabView>
+          <p-tabPanel [leftIcon]="item.iconServ" [header]="item.titleServ" *ngFor="let item of items; let i = index" [selected]="i == 0">
+              <div class="row text-service">
+                  <blockquote class="col-md-4">
+                      <p  class="block-textServOne">
+                        {{item.textServOne}}
+                      </p>
+                      <footer  class="block-nameServ">
+                        {{item.nameServ}}
+                      </footer>
+                  </blockquote>
+                  <p  class="col-md-4">
+                    {{item.textServTwo}}
+                  </p>
+                  <p  class="col-md-4">
+                  {{item.textServThree}}
+                  </p>
+              </div>
+          </p-tabPanel>
+      </p-tabView>`,
     styleUrls: ['./block-service.component.scss']
 })
 
@@ -79,23 +46,32 @@ export class BlockServiceComponent implements OnInit {
 
      iconServ1 = {};
 
-    // @ContentChild(Footer) footerFacet;
+    sourceS = 'servItems';
 
-    constructor() {
+
+    items: any[];
+
+    constructor(@Inject(ITEMABOUT_SERVICE) private itemsS: ItemsAboutService) {
     }
 
     ngOnInit() {
-         if (this.iconServ) {
-             this.iconServ1[this.iconServ] = true;
-        }
+        this.itemsS.getItemsS(this.sourceS).subscribe((items: any[]) => {
+            this.items = items;
+            console.log('!!!!!!!!!', items);
+            if (this.iconServ) {
+                this.iconServ1[this.iconServ] = true;
+            }
+        });
     }
 }
+
 
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
+        TabViewModule
 
     ],
     exports: [BlockServiceComponent],
